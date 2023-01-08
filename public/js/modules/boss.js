@@ -1,4 +1,4 @@
-import enigma from "./enigma";
+import enigma from "./enigma.js";
 
 class Boss {
     constructor(name, health, attack) {

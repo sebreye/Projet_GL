@@ -1,6 +1,6 @@
-import Hero from "./hero";
+import Hero from "./hero.js";
 
-class Warrior extends Hero {
+class Guerrier extends Hero {
     constructor(name, health, attack) {
         super(name, health, attack);
         this.rage = 0;
@@ -16,4 +16,4 @@ class Warrior extends Hero {
         }
     }
 
-    export default Warrior;
+    export default Guerrier;

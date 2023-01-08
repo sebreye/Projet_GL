@@ -1,4 +1,4 @@
-import Hero from "./hero";
+import Hero from "./hero.js";
 
 class Mage extends Hero {
     constructor(name, health, attack) {
@@ -16,3 +16,5 @@ class Mage extends Hero {
         this.mana -= 2;
         }
     }
+
+    export default Mage;
