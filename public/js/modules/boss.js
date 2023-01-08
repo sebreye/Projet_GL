@@ -2,10 +2,10 @@ import enigma from "./enigma";
 
 class Boss {
     constructor(name, health, attack) {
-    this.name = name;
-    this.health = health;
-    this.maxHealth = health;
-    this.attack = attack;
+        this.name = name;
+        this.health = health;
+        this.maxHealth = health;
+        this.attack = attack;
 }
     Qenigma() {
     const enigme = enigma[Math.floor(Math.random() * enigma.length)];
@@ -20,3 +20,5 @@ class Boss {
     console.log("Vous avez échoué à l'énigme. Vous avez perdu.");
     }
 }
+
+export default Boss;
