@@ -15,3 +15,5 @@ class Hero {
         this.attaque += this.attaque * 0.4;
         }
     }
+
+    export default Hero;
