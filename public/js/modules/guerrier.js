@@ -15,3 +15,5 @@ class Warrior extends Hero {
         }
         }
     }
+
+    export default Warrior;
