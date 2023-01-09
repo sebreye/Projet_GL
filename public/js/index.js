@@ -70,7 +70,7 @@ import enigma from "./modules/enigma.js";
         
           // Boss pose une énigme
         console.log("Le boss " + boss.name + " vous pose une énigme:");
-        Qenigma()
+        Qenigma(enigma)
         
     }
 
