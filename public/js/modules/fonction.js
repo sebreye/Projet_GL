@@ -13,13 +13,23 @@ function askstart(reponse) {
 }
 
 function RandomBoss() {
-    let bosses = [new Boss("Sauron", 250, 10), new Boss("Chronos", 150, 15), new Boss("Lilith", 300, 20)];
+    let bosses = [Sauron,Chronos,Lilith];
     let boss = bosses[Math.floor(Math.random() * bosses.length)];
     console.log(`Un nouveau boss, ${boss.name}, apparaît !`);
 }
+function Action() {
+    let heroes = [guerrier, mage, archer]
+    let action = prompt("que voulez-vous faire attaque/défense")
 
-
-
+    switch (action) {
+        case 'attaque':
+            heroes.forEach(element => element.attaque)
+            break;
+    
+        default:
+            break;
+    }
+}
 
 
 let guerrier = new Guerrier('Guerrier', 100, 25)
