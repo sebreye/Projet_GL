@@ -34,12 +34,24 @@ function Action() {
     }
 }
 function RandomTargetBoss() {
+    let bosses = [Sauron,Chronos,Lilith];
+    let boss = bosses[Math.floor(Math.random() * bosses.length)];
     const target = heroes[Math.floor(Math.random() * heroes.length)];
     if (target.health > 0) {
-    console.log(`${boss.name}  attaque  ${target.name}  et inflige ${boss.attack} + " dégâts."`);
+    console.log(`${boss.name}  attaque  ${target.name}  et inflige ${boss.attack}  dégâts.`);
     target.health -= boss.attack;
     }
-
+}
+function PvBH() {
+    let bosses = [Sauron,Chronos,Lilith];
+    let boss = bosses[Math.floor(Math.random() * bosses.length)];
+    while (boss.health > 0 && heroes.some(hero => hero.health > 0)) {
+        console.log("Points de vie de " + boss.name + ": " + boss.health);
+    }
+    let heroes = [guerrier, mage, archer]
+        for (const hero of heroes) {
+            console.log("Points de vie de " + hero.name + ": " + hero.health);
+        }
 }
 
 let guerrier = new Guerrier('Guerrier', 100, 25)
