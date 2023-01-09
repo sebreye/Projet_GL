@@ -1,9 +1,7 @@
 import Guerrier from "./modules/guerrier.js";
 import Mage from "./modules/mage.js";
 import Archer from "./modules/archer.js";
-import Sauron from "./modules/boss.js";
-import Chronos from "./modules/boss.js";
-import Lilith from "./modules/boss.js";
+import { askstart, RandomBoss, Action, RandomTargetBoss, PvBH } from "./modules/fonction.js";
 
 function startGame() {
     let response = prompt("Voulez-vous démarrer le jeu ? (oui / non)");
@@ -50,3 +48,26 @@ startGame();
         boss.Qenigma();
     }
         
+
+
+    function StartGL() {
+        console.log('Bienvenue sur Geek of Legends');
+        askstart(reponse)
+        
+        RandomBoss()
+
+        Action()
+
+        RandomTargetBoss()
+
+        PvBH()
+        if (boss.health <= 0) {
+            console.log(`${boss.name} a été vaincu ! Vous avez gagné !`);
+          } else if (boss.health <= boss.maxHealth * 0.2) {
+            boss.Qenigma();
+        }
+    }
+
+
+
+    

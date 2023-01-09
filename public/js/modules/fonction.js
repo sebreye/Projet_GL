@@ -3,7 +3,7 @@ import Mage from "./mage.js";
 import Archer from "./archer.js";
 import Boss from"./boss.js";
 
-function askstart(reponse) {
+export function askstart(reponse) {
     let reponse = prompt("Voulez-vous démarrer le jeu ? (oui / non)")
     if(reponse.toLowerCase() === 'oui'){
         console.log('le jeu démarre');
@@ -12,12 +12,12 @@ function askstart(reponse) {
     }
 }
 
-function RandomBoss() {
+export function RandomBoss() {
     let bosses = [Sauron,Chronos,Lilith];
     let boss = bosses[Math.floor(Math.random() * bosses.length)];
     console.log(`Un nouveau boss, ${boss.name}, apparaît !`);
 }
-function Action() {
+export function Action() {
     let heroes = [guerrier, mage, archer]
     let action = prompt("que voulez-vous faire attaque/défense")
 
@@ -33,7 +33,7 @@ function Action() {
             break;
     }
 }
-function RandomTargetBoss() {
+export function RandomTargetBoss() {
     let bosses = [Sauron,Chronos,Lilith];
     let boss = bosses[Math.floor(Math.random() * bosses.length)];
     const target = heroes[Math.floor(Math.random() * heroes.length)];
@@ -42,7 +42,7 @@ function RandomTargetBoss() {
     target.health -= boss.attack;
     }
 }
-function PvBH() {
+export function PvBH() {
     let bosses = [Sauron,Chronos,Lilith];
     let boss = bosses[Math.floor(Math.random() * bosses.length)];
     while (boss.health > 0 && heroes.some(hero => hero.health > 0)) {
@@ -53,6 +53,8 @@ function PvBH() {
             console.log("Points de vie de " + hero.name + ": " + hero.health);
         }
 }
+
+
 
 let guerrier = new Guerrier('Guerrier', 100, 25)
 let mage = new Mage('Mage', 100, 15)
