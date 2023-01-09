@@ -24,13 +24,23 @@ function Action() {
     switch (action) {
         case 'attaque':
             heroes.forEach(element => element.attaque)
+            console.log("les héros passe à l'attaque");
             break;
-    
+        case 'défense':
+            heroes.forEach(element => element.defense)
+            console.log("les héros se défendent");
         default:
             break;
     }
 }
+function RandomTargetBoss() {
+    const target = heroes[Math.floor(Math.random() * heroes.length)];
+    if (target.health > 0) {
+    console.log(`${boss.name}  attaque  ${target.name}  et inflige ${boss.attack} + " dégâts."`);
+    target.health -= boss.attack;
+    }
 
+}
 
 let guerrier = new Guerrier('Guerrier', 100, 25)
 let mage = new Mage('Mage', 100, 15)
