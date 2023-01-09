@@ -6,11 +6,11 @@ class Guerrier extends Hero {
         this.rage = 0;
     }
 
-    attack() {
-        super.attack();
+    attacks() {
+        super.attacks();
         this.rage++;
         if (this.rage >= 4) {
-          this.attack += this.attack * 0.25;
+          this.attacks += this.attacks * 0.25;
             this.rage = 0;
         }
         }

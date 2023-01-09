@@ -3,7 +3,7 @@ import Mage from "./mage.js";
 import Archer from "./archer.js";
 import Boss from"./boss.js";
 
-export function askstart(reponse) {
+export function askstart() {
     let reponse = prompt("Voulez-vous démarrer le jeu ? (oui / non)")
     if(reponse.toLowerCase() === 'oui'){
         console.log('le jeu démarre');
@@ -17,25 +17,25 @@ export function RandomBoss() {
     let boss = bosses[Math.floor(Math.random() * bosses.length)];
     console.log(`Un nouveau boss, ${boss.name}, apparaît !`);
 }
-export function Action() {
-    let heroes = [guerrier, mage, archer]
-    let action = prompt("que voulez-vous faire attaque/défense")
-
-    switch (action) {
-        case 'attaque':
-            heroes.forEach(element => element.attaque)
-            console.log("les héros passe à l'attaque");
-            break;
-        case 'défense':
-            heroes.forEach(element => element.defense)
-            console.log("les héros se défendent");
+export function act(posture) {
+    switch (posture) {
+        case "attack":
+        console.log(this.name + " attaque et inflige " + this.attack + " dégâts.");
+        this.health -= 0.75 * this.attack;
+        break;
+        case "defend":
+        console.log(this.name + " se défend et récupère " + 2.5 * this.health + " points de vie.");
+        this.health *= 2.5;
+        break;
         default:
-            break;
+        console.log(this.name + " ne fait rien de particulier.");
+        break;
     }
 }
+
+
 export function RandomTargetBoss() {
-    let bosses = [Sauron,Chronos,Lilith];
-    let boss = bosses[Math.floor(Math.random() * bosses.length)];
+    
     const target = heroes[Math.floor(Math.random() * heroes.length)];
     if (target.health > 0) {
     console.log(`${boss.name}  attaque  ${target.name}  et inflige ${boss.attack}  dégâts.`);
@@ -43,12 +43,9 @@ export function RandomTargetBoss() {
     }
 }
 export function PvBH() {
-    let bosses = [Sauron,Chronos,Lilith];
-    let boss = bosses[Math.floor(Math.random() * bosses.length)];
     while (boss.health > 0 && heroes.some(hero => hero.health > 0)) {
         console.log("Points de vie de " + boss.name + ": " + boss.health);
     }
-    let heroes = [guerrier, mage, archer]
         for (const hero of heroes) {
             console.log("Points de vie de " + hero.name + ": " + hero.health);
         }
