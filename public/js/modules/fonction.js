@@ -12,7 +12,16 @@ export function askstart() {
         console.log("le jeu n'a pas été lancé");
     }
 }
+export function NameHero(){
+    const heroes = [new Guerrier("Guerrier", 100, 50), new Mage("Mage", 75, 100), new Archer("Archer", 50, 75)];
 
+for (let hero of heroes) {
+    let newName = prompt(`${hero.name}, entrez votre nouveau nom :`);
+    hero.name = newName;
+    console.log(`${hero.name} est maintenant le nouveau nom de votre héros.`);
+}
+
+}
 export function RandomBoss() {
     let bosses = [Sauron,Chronos,Lilith];
     let boss = bosses[Math.floor(Math.random() * bosses.length)];
@@ -45,7 +54,8 @@ export function Qenigma() {
         return;
         }
     }
-    console.log("Vous avez échoué à l'énigme. Vous avez perdu.");
+    if (answer.toLowerCase() !== enigme.reponse.toLowerCase()){
+    console.log("Vous avez échoué à l'énigme. Vous avez perdu.");}
     }
 
 

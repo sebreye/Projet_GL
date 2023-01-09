@@ -4,7 +4,7 @@ import Archer from "./modules/archer.js";
 import Sauron from "./modules/boss.js";
 import Chronos from "./modules/boss.js"
 import Lilith from "./modules/boss.js"
-import { askstart, RandomBoss, Qenigma } from "./modules/fonction.js";
+import { askstart, RandomBoss, Qenigma, NameHero } from "./modules/fonction.js";
 import enigma from "./modules/enigma.js";
 
 ;
@@ -17,6 +17,12 @@ import enigma from "./modules/enigma.js";
         alert('Bienvenue sur Geek of Legends');
         askstart()
         
+        for (let hero of heroes) {
+            let newName = prompt(`${hero.name}, entrez votre nouveau nom :`);
+            hero.name = newName;
+            console.log(`${hero.name} est maintenant le nouveau nom de votre héros.`);
+        }
+
         RandomBoss()
 
         while (boss.health > boss.maxHealth * 0.2) {
@@ -70,7 +76,7 @@ import enigma from "./modules/enigma.js";
         
           // Boss pose une énigme
         console.log("Le boss " + boss.name + " vous pose une énigme:");
-        Qenigma(enigma)
+        Qenigma(enigma) 
         
     }
 
