@@ -2,6 +2,7 @@ import Guerrier from "./guerrier.js";
 import Mage from "./mage.js";
 import Archer from "./archer.js";
 import Boss from"./boss.js";
+import enigma from "./enigma.js";
 
 export function askstart() {
     let reponse = prompt("Voulez-vous démarrer le jeu ? (oui / non)")
@@ -34,22 +35,18 @@ export function act(posture) {
 }
 
 
-export function RandomTargetBoss() {
-    
-    const target = heroes[Math.floor(Math.random() * heroes.length)];
-    if (target.health > 0) {
-    console.log(`${boss.name}  attaque  ${target.name}  et inflige ${boss.attack}  dégâts.`);
-    target.health -= boss.attack;
-    }
-}
-export function PvBH() {
-    while (boss.health > 0 && heroes.some(hero => hero.health > 0)) {
-        console.log("Points de vie de " + boss.name + ": " + boss.health);
-    }
-        for (const hero of heroes) {
-            console.log("Points de vie de " + hero.name + ": " + hero.health);
+export function Qenigma() {
+    let enigme = enigma[Math.floor(Math.random() * enigma.length)];
+    console.log(`le boss vous pose une énigme : ${enigme.question}`);
+    for (let i = 0; i < 3; i++) {
+        let answer = prompt("Quelle est la réponse ?");
+        if (answer.toLowerCase() === enigme.reponse.toLowerCase()) {
+        console.log("Bonne réponse ! Vous avez vaincu le boss.");
+        return;
         }
-}
+    }
+    console.log("Vous avez échoué à l'énigme. Vous avez perdu.");
+    }
 
 
 

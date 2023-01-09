@@ -8,10 +8,10 @@ class Boss {
         this.attack = attack;
 }
     Qenigma() {
-    const enigme = enigma[Math.floor(Math.random() * enigma.length)];
+    let enigme = enigma[Math.floor(Math.random() * enigma.length)];
     console.log(`${this.name} vous pose une énigme : ${enigme.question}`);
     for (let i = 0; i < 3; i++) {
-        const answer = prompt("Quelle est la réponse ?");
+        let answer = prompt("Quelle est la réponse ?");
         if (answer.toLowerCase() === enigme.reponse.toLowerCase()) {
         console.log("Bonne réponse ! Vous avez vaincu le boss.");
         return;
