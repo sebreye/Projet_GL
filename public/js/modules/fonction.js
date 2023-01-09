@@ -12,8 +12,10 @@ function askstart(reponse) {
     }
 }
 
-function name(params) {
-    
+function RandomBoss() {
+    let bosses = [new Boss("Sauron", 250, 10), new Boss("Chronos", 150, 15), new Boss("Lilith", 300, 20)];
+    let boss = bosses[Math.floor(Math.random() * bosses.length)];
+    console.log(`Un nouveau boss, ${boss.name}, apparaît !`);
 }
 
 
