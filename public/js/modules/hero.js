@@ -16,4 +16,4 @@ class Hero {
         }
     }
 
-    export default Hero;
+    export default Hero;s
