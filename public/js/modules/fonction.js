@@ -16,29 +16,30 @@ export function RandomBoss() {
     console.log(`Un nouveau boss, ${RandBoss.name}, apparaît !`);
 }
 export function act() {
-    let posture = prompt(`Choisissez votre posture pour ${Hero.name} (attack/defend):`);
-        
+    for(let hero of Hero){
+    let posture = prompt(`Choisissez votre posture pour ${hero.name} (attack/defend):`);
         switch (posture) {
             case "attack":
-                console.log(Hero.name + " attaque et inflige " + 2 * Hero.attack + " dégâts.");
-                Hero.health -= 0.75 * Hero.attack;
-                RandBoss.health -= 2 * Hero.attack
+                console.log(hero.name + " attaque et inflige " + 1.4 * hero.attack + " dégâts.");
+                hero.health -= 0.75 * hero.attack;
+                RandBoss.health -= 1.4 * hero.attack
                 console.log("Points de vie de " + RandBoss.name + ": " + RandBoss.health)
                     break;
                     case "defend":
-                    console.log(Hero.name + " se défend et récupère " + 2.5 * Hero.health + " points de vie.");
-                    Hero.health *= 2.5;
-                    RandBoss.health -= 0.5 * Hero.attack
+                    console.log(hero.name + " se défend et récupère " + 0.5 * hero.health + " points de vie.");
+                    hero.health *= 0.5;
+                    RandBoss.health -= 0.5 * hero.attack
                     console.log("Points de vie de " + RandBoss.name + ": " + RandBoss.health)
                     break;
                     case "normal":
-                        console.log(Hero.name + " attaque et inflige " + Hero.attack + " dégâts.");
-                        RandBoss.health -= Hero.attack
+                        console.log(hero.name + " attaque et inflige " + hero.attack + " dégâts.");
+                        RandBoss.health -= hero.attack
                     break;
                     default:
-                    console.log(Hero.name + " ne fait rien de particulier.");
+                    console.log(hero.name + " ne fait rien de particulier.");
                     break;
                 }
+            }
 }
 
 export function Distribute(){
@@ -84,7 +85,7 @@ export function Qenigma() {
             alert("vous avez perdu")
         }
     }
-    }
+}
 
 export function BossTarget() {
     let target = Hero[Math.floor(Math.random() * Hero.length)];
@@ -127,7 +128,30 @@ export function StartGL() {
                 continue;
             }
             console.log("C'est au tour de " + hero.name + " de jouer.");
-            act()
+            // choix de posture
+            // act()
+            let posture = prompt(`Choisissez votre posture pour ${hero.name} (attack/defend):`);
+        switch (posture) {
+            case "attack":
+                console.log(hero.name + " attaque et inflige " + 1.4 * hero.attack + " dégâts.");
+                hero.health -= 0.75 * hero.attack;
+                RandBoss.health -= 1.4 * hero.attack
+                console.log("Points de vie de " + RandBoss.name + ": " + RandBoss.health)
+                    break;
+                    case "defend":
+                    console.log(hero.name + " se défend et récupère " + 0.5 * hero.health + " points de vie.");
+                    hero.health += 0.5 * hero.health;
+                    RandBoss.health -= 0.5 * hero.attack
+                    console.log("Points de vie de " + RandBoss.name + ": " + RandBoss.health)
+                    break;
+                    case "normal":
+                        console.log(hero.name + " attaque et inflige " + hero.attack + " dégâts.");
+                        RandBoss.health -= hero.attack
+                    break;
+                    default:
+                    console.log(hero.name + " ne fait rien de particulier.");
+                    break;
+                }
             }          
             // Tour du boss
             if (RandBoss.health <= 0) {
@@ -147,7 +171,5 @@ export function StartGL() {
           // Boss pose une énigme
         console.log(`Le boss  ${RandBoss.name}  vous pose une énigme:`);
         Qenigma(enigma) 
-    
-    
-
 }
+
