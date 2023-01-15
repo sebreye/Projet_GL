@@ -72,20 +72,39 @@ export function Distribute(){
     }
 export function Qenigma() {
     let enigme = enigma[Math.floor(Math.random() * enigma.length)];
-    console.log(`le boss vous pose une énigme : ${enigme.question}`);
+    console.log(`Le boss vous pose une énigme : ${enigme.question}`);
+    let essais = 0;
     for (let i = 0; i < 3; i++) {
         let answer = prompt("Quelle est la réponse ?");
         if (answer.toLowerCase() === enigme.reponse.toLowerCase()) {
-        alert("Bonne réponse ! Vous avez vaincu le boss.");
+            alert("Bonne réponse ! Vous avez vaincu le boss.");
+            break;
         }
-        else if (answer.toLowerCase() !== enigme.reponse.toLowerCase()){
-            alert("Vous avez échoué à l'énigme. recommencez.");
-            }
-        else{
-            alert("vous avez perdu")
+        else {
+            essais++;
+            alert(`Mauvaise réponse, vous avez encore ${3 - essais} essais.`);
         }
     }
+    if(essais === 3){
+        alert(`Vous avez perdu, ${RandBoss.name} vous a tués`);
+    }
 }
+    // let enigme = enigma[Math.floor(Math.random() * enigma.length)];
+    // console.log(`le boss vous pose une énigme : ${enigme.question}`);
+    // for (let i = 0; i < 3; i++) {
+    //     let answer = prompt("Quelle est la réponse ?");
+    //     if (answer.toLowerCase() === enigme.reponse.toLowerCase()) {
+    //     alert("Bonne réponse ! Vous avez vaincu le boss.");
+    //     break;
+    //     }
+    //     else if (answer.toLowerCase() !== enigme.reponse.toLowerCase()){
+    //         alert("Vous avez échoué à l'énigme. recommencez.");
+    //         }
+    //     else{
+    //         alert("vous avez perdu")
+    //     }
+    // }
+// }
 
 export function BossTarget() {
     let target = Hero[Math.floor(Math.random() * Hero.length)];
@@ -134,23 +153,23 @@ export function StartGL() {
         switch (posture) {
             case "attack":
                 console.log(hero.name + " attaque et inflige " + 1.4 * hero.attack + " dégâts.");
-                hero.health -= 0.75 * hero.attack;
+                // hero.health -= 0.75 * hero.attack;
                 RandBoss.health -= 1.4 * hero.attack
                 console.log("Points de vie de " + RandBoss.name + ": " + RandBoss.health)
-                    break;
-                    case "defend":
-                    console.log(hero.name + " se défend et récupère " + 0.5 * hero.health + " points de vie.");
-                    hero.health += 0.5 * hero.health;
-                    RandBoss.health -= 0.5 * hero.attack
-                    console.log("Points de vie de " + RandBoss.name + ": " + RandBoss.health)
-                    break;
-                    case "normal":
-                        console.log(hero.name + " attaque et inflige " + hero.attack + " dégâts.");
-                        RandBoss.health -= hero.attack
-                    break;
-                    default:
-                    console.log(hero.name + " ne fait rien de particulier.");
-                    break;
+                break;
+            case "defend":
+                console.log(hero.name + " se défend et récupère " + 0.5 * hero.health + " points de vie.");
+                hero.health += 0.5 * hero.health;
+                RandBoss.health -= 0.5 * hero.attack
+                console.log("Points de vie de " + RandBoss.name + ": " + RandBoss.health)
+                break;
+            case "normal":
+                console.log(hero.name + " attaque et inflige " + hero.attack + " dégâts.");
+                RandBoss.health -= hero.attack
+                break;
+            default:
+                console.log(hero.name + " ne fait rien de particulier.");
+                break;
                 }
             }          
             // Tour du boss
@@ -171,5 +190,23 @@ export function StartGL() {
           // Boss pose une énigme
         console.log(`Le boss  ${RandBoss.name}  vous pose une énigme:`);
         Qenigma(enigma) 
+        
 }
-
+// essai demande restart
+// export function restartGL() {
+//     let restart = true;
+//     while (restart) {
+//     StartGL();
+//     let userInput = prompt("Voulez-vous relancer le jeu? (oui/non)");
+//     switch (userInput.toLowerCase()) {
+//     case "oui":
+//         restart = true;
+//         break;
+//     case "non":
+//         restart = false;
+//         break;
+//     default:
+//         console.log("Entrée non valide, veuillez saisir oui ou non.");
+//         break;
+//     }
+// }

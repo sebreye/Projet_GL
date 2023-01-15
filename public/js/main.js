@@ -1,6 +1,7 @@
-import {StartGL, } from "./modules/fonction.js";
+import {StartGL,} from "./modules/fonction.js";
 
 
 
 StartGL()
+
 
